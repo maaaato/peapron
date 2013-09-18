@@ -16,7 +16,7 @@ def index(request):
         "member": user,
 
     })
-    
+
     return render_to_response(
         'index.html', "",
         context_instance=rctxt)
@@ -40,19 +40,17 @@ def login(request):
     return HttpResponseRedirect(reverse('login'))
 
 
-def user_regist(request):
-    """登録"""
-    user = None
-    if request.method == "POST":
-        if request.POST["username"] and request.POST["password"]:
-            user = Users.get_user(request.POST["username"],
-                                  request.POST["password"])
-            if user:
-                Session.set_user_id(request, user)
-                return HttpResponseRedirect(reverse('index'))
-    else:
-        return render_to_response(
-            'login_index.html', "",
-            context_instance=RequestContext(request))
 
-    return HttpResponseRedirect(reverse('user_regist_complete'))
+#def user_regist(request):
+#    """登録"""
+#    if request.method == "POST":
+#        
+#        return HttpResponseRedirect(reverse('user_regist_complete'))
+#    else:
+#        return render_to_response(
+#            'user_regist_index.html', "",
+#            context_instance=RequestContext(request))
+# 
+#    return render_to_response(
+#        'user_regist_index.html', "",
+#        context_instance=RequestContext(request))
