@@ -40,17 +40,16 @@ def login(request):
     return HttpResponseRedirect(reverse('login'))
 
 
-
-#def user_regist(request):
-#    """登録"""
-#    if request.method == "POST":
-#        
-#        return HttpResponseRedirect(reverse('user_regist_complete'))
-#    else:
-#        return render_to_response(
-#            'user_regist_index.html', "",
-#            context_instance=RequestContext(request))
-# 
-#    return render_to_response(
-#        'user_regist_index.html', "",
-#        context_instance=RequestContext(request))
+def user_regist(request):
+    """登録"""
+    if request.method == "POST":
+        
+        return HttpResponseRedirect(reverse('user_regist_complete'))
+    else:
+        return render_to_response(
+            'user_regist_index.html', "",
+            context_instance=RequestContext(request))
+ 
+    return render_to_response(
+        'user_regist_index.html', "",
+        context_instance=RequestContext(request))
