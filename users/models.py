@@ -15,15 +15,27 @@ class Users(models.Model):
     def __init__(self, id, password):
         self.id = id
         self.password = password
-        
+
     def get_user_by_id(self):
         '''IDで取得'''
         try:
             m = Users.objects.get(id__exact=self.id)
         except:
             m = None
-            
+
         if m:
             return m
-            
+
+        return None
+
+    def set_user(self):
+        '''IDで取得'''
+        try:
+            m = Users.objects.create(id=self.id, password=self.password)
+        except:
+            m = None
+
+        if m:
+            return m
+
         return None

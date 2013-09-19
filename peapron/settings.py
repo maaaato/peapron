@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'peapron',
     'users',
+    'hash_manager',
 )
 
 # A sample logging configuration. The only tangible logging

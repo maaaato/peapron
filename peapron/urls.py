@@ -20,4 +20,7 @@ urlpatterns += patterns(
     'peapron.views',
     url(r'^$', 'index', name="index"),
     url(r'^login/', 'login', name="login"),
+    url(r'^user_regist/', 'user_regist', name="user_regist"),
 )
+
+

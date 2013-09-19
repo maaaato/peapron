@@ -4,7 +4,7 @@ import hashlib
 SALT = 'AAABBBCCC'
 
 
-class Hash(object):
+class HashManager(object):
     '''ハッシュクラス'''
 
     def __init__(self, hash_name, password):

@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from session.utile.base_utile import Session
 from users.models import Users
 from peapron.decorate import login_required
+from hash_manager.hash_manager import HashManager
 
 
 @login_required
@@ -40,11 +41,15 @@ def login(request):
     return HttpResponseRedirect(reverse('login'))
 
 
+'''password,idが正しいかチェックするデコレータほしい'''
 def user_regist(request):
     """登録"""
     if request.method == "POST":
-        
-        return HttpResponseRedirect(reverse('user_regist_complete'))
+        h = HashManager('sha1', request.POST["password"])
+        user = Users(request.POST["password"], h.password)
+        if user:
+            return HttpResponseRedirect(reverse('user_regist_complete'))
+
     else:
         return render_to_response(
             'user_regist_index.html', "",
